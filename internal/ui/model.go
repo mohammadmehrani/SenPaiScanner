@@ -1220,10 +1220,17 @@ func (m AppModel) viewAbout() string {
 	sb.WriteString(styleTitle.Render("  SenPai Scanner\n"))
 	sb.WriteString(styleDim.Render(fmt.Sprintf("  version %s", m.version)))
 	sb.WriteString("\n\n")
-	sb.WriteString(styleNormal.Render("  A Cloudflare IP scanner built for high-latency, restricted networks.\n"))
-	sb.WriteString(styleNormal.Render("  Probes Cloudflare's edge nodes via TCP/TLS/HTTP, measures loss,\n"))
-	sb.WriteString(styleNormal.Render("  jitter, and identifies the colo (PoP) behind each IP.\n\n"))
-	sb.WriteString(styleDim.Render("  github.com/matinsenpai/senpaiscanner\n\n"))
+	sb.WriteString(styleNormal.Render("  A Cloudflare IP scanner built for high-latency, restricted networks."))
+	sb.WriteRune('\n')
+
+	sb.WriteString(styleNormal.Render("  Probes Cloudflare's edge nodes via TCP/TLS/HTTP, measures loss,"))
+	sb.WriteRune('\n')
+
+	sb.WriteString(styleNormal.Render("  jitter, and identifies the colo (PoP) behind each IP."))
+	sb.WriteString("\n\n")
+
+	sb.WriteString(styleDim.Render("  github.com/matinsenpai/senpaiscanner"))
+	sb.WriteString("\n\n")
 	sb.WriteString(styleHint.Render("  enter/q → back"))
 	return sb.String()
 }
