@@ -17,6 +17,12 @@ func main() {
 		return
 	}
 
+	// JSONL streaming mode for the desktop UI (Electron).
+	if len(os.Args) > 1 && os.Args[1] == "--jsonl-server" {
+		runJSONLServer()
+		return
+	}
+
 	model := ui.NewApp(version.Version)
 
 	p := tea.NewProgram(
@@ -33,3 +39,4 @@ func main() {
 		os.Exit(1)
 	}
 }
+
