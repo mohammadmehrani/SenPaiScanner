@@ -2,6 +2,10 @@ module github.com/matinsenpai/senpaiscanner
 
 go 1.26.3
 
+// blackboxai: ensure local toolchain usage in restricted networks
+// (prevents go toolchain download behavior when proxy is blocked)
+
+
 require (
 	github.com/atotto/clipboard v0.1.4
 	github.com/charmbracelet/bubbles v1.0.0
