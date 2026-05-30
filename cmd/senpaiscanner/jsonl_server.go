@@ -117,7 +117,7 @@ func runJSONLServer() {
 		}
 		// Live log line
 		alive := r.IsHealthy()
-		msg := fmt.Sprintf("[%s] %s - avg=%0.2fms loss=%0.1f%% colo=%s dl=%0.2f kbps", map[bool]string{true:"ALIVE", false:"DEAD"}[alive], r.IP.String(), r.AvgMs(), r.LossPct(), r.Colo, r.ThroughputKbps())
+		msg := fmt.Sprintf("[%s] %s - avg=%0.2fms loss=%0.1f%% colo=%s dl=%0.2f kbps", map[bool]string{true:"ALIVE", false:"DEAD"}[alive], r.IP.String(), float64(r.Avg().Milliseconds()), r.Loss(), r.Colo, r.Throughput/1024)
 		writeMsg(writer, jsonlMsg{Type: "log", Time: unixMs(), Message: msg})
 
 		if alive {
